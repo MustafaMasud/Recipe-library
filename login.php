@@ -30,7 +30,7 @@
     </nav>
 
     <section>
-        <form action="" method="POST">
+        <form action="UserLogin.php" method="POST">
             <link rel="stylesheet" href="style.css">
             <div class="container">
                 <h1>Login</h1>

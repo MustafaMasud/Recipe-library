@@ -26,8 +26,7 @@
      $pass = $_POST['psw'];
     $stmt->execute();
 
-    echo "You're successfully registered";
-
+    header("Location: http://localhost/login.php");
     $stmt->close();
     $conn->close();
 ?>

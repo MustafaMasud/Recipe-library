@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,10 +23,17 @@
                 <a class="nav-link" href="about.php">About</a>
             </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-            <a class="btn btn-sm btn-outline-secondary" type="button" href="login.php">Log In</a>
-            <a class="btn btn-sm btn-outline-secondary" type="button" href="register.php">Sign Up</a>
-            </form>
+            <?php 
+                if (isset($_SESSION['email'])){
+                   echo  '<a class="btn btn-sm btn-outline-secondary" type="button" href="logout.php">Log Out</a>';    
+                } else {
+                   echo ' <form class="form-inline my-2 my-lg-0">
+                    <a class="btn btn-sm btn-outline-secondary" type="button" href="login.php">Log In</a>
+                    <a class="btn btn-sm btn-outline-secondary" type="button" href="register.php">Sign Up</a>
+                    </form>';
+                }
+            ?>
+            
         </div>
         </nav>
 
