@@ -25,7 +25,8 @@
             <?php 
                 if (isset($_SESSION['email'])){
                     echo '<a class="btn btn-outline-success" type="button" href="post.php">+Create Post</a>';
-                    echo '<a class="btn btn-sm btn-outline-secondary" type="button" href="logout.php">Log Out</a>';    
+                    echo '<a class="btn btn-sm btn-outline-secondary" type="button" href="logout.php">Log Out</a>'; 
+                    echo '<a class="btn btn-sm btn-outline-secondary" type="button" href="Edit.php">Edit Profile</a>';   
                 } else {
                    echo ' <form class="form-inline my-2 my-lg-0">
                     <a class="btn btn-sm btn-outline-secondary" type="button" href="login.php">Log In</a>
