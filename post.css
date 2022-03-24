@@ -8,7 +8,7 @@
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
-  width: 100%;
+  width: 40%;
   padding: 15px;
   margin: 5px 0 22px 0;
   display: inline-block;
@@ -28,7 +28,7 @@ hr {
 }
 
 /* Set a style for the submit/register button */
-.registerbtn {
+.postbtn {
   background-color: #04AA6D;
   color: white;
   padding: 16px 20px;
@@ -39,7 +39,7 @@ hr {
   opacity: 0.9;
 }
 
-.registerbtn:hover {
+.postbtn:hover {
   opacity:1;
 }
 
@@ -52,4 +52,33 @@ a {
 .signin {
   background-color: #f1f1f1;
   text-align: center;
+}
+
+/*Post CSS */
+textarea {
+  resize: none;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+html,body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+.post-wall {
+    background: #ececec;
+    border-left: 2px solid lightgrey;
+    border-right: 2px solid lightgrey;
+    height: 100%;
+    width: 70%;
+    margin: 0 auto;
+}
+
+hr {
+    color: black
+
 }

@@ -6,8 +6,7 @@
     <head>
         <meta name ='description' contents='Recipe Library'>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    </head>
-    <body>
+    
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index.php">Recipe Library</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,7 +24,8 @@
             </ul>
             <?php 
                 if (isset($_SESSION['email'])){
-                   echo  '<a class="btn btn-sm btn-outline-secondary" type="button" href="logout.php">Log Out</a>';    
+                    echo '<a class="btn btn-outline-success" type="button" href="post.php">+Create Post</a>';
+                    echo '<a class="btn btn-sm btn-outline-secondary" type="button" href="logout.php">Log Out</a>';    
                 } else {
                    echo ' <form class="form-inline my-2 my-lg-0">
                     <a class="btn btn-sm btn-outline-secondary" type="button" href="login.php">Log In</a>
@@ -36,11 +36,54 @@
             
         </div>
         </nav>
+    
+    </head>
+    <body>
+    <link rel="stylesheet" href="post.css">
+        <div class="post-wall">
+            <div id="post-list">
+            <?php
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname="mydb";
 
+                $conn = new mysqli($servername, $username, $password, $dbname);
+                $qry = mysqli_query($conn, "SELECT * FROM listpost ORDER BY post_date DESC");
+            ?>
+                <div class="post-item">
+                    <?php
+                        while ($row = mysqli_fetch_array($qry)){
 
-        <section>
-            Index/Home page working
-        </section>
-
+                    ?>
+                    <h3 class="post_title">
+                        <?php
+                            echo $row['dish']
+                        ?>
+                    </h3>
+                    <p class="post_user">
+                        post by 
+                        <?php echo $row['username'] ?> on 
+                        <?php echo $row['post_date'];?>     
+                    </p>
+                    <p class="post_ingred">
+                    <h5>Ingredients</h5>
+                    <?php
+                        echo nl2br($row['ingred']);
+                    ?>
+                    </p>
+                    <p class="post_steps">
+                    <h5>Steps</h5>
+                    <?php
+                        echo nl2br($row['steps']);
+                    ?>
+                    </p>
+                    <hr>
+                </div>
+                <?php
+                    }
+                ?>
+            </div>   
+        </div>
     </body>
 </html>
